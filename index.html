@@ -1,0 +1,1566 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>www17cc官网_视频创作工具与素材频道_创作者社区与作品档案</title>
+<meta name="description" content="www17cc官网是面向视频创作者的工具与素材频道，提供剪辑模板、调色预设、音效清单、作品档案与社区挑战赛，适合短片团队、自媒体与剪辑爱好者日常取用。">
+<meta name="keywords" content="视频剪辑模板,调色预设包,音效素材库,创作者社区,作品档案">
+<style>
+:root{
+  --bg:#0c0f14;
+  --bg-soft:#12161d;
+  --panel:#161b23;
+  --panel-2:#1b212b;
+  --line:#242c38;
+  --line-soft:#1e2530;
+  --text:#e8ecf2;
+  --text-2:#b3bcc9;
+  --text-3:#7d8797;
+  --brand:#ff5a3c;
+  --brand-2:#ffb03a;
+  --brand-soft:rgba(255,90,60,.12);
+  --cyan:#3fd0c9;
+  --violet:#8a7cff;
+  --radius:14px;
+  --radius-sm:9px;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --header-h:64px;
+  --notice-h:40px;
+  --maxw:1340px;
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font);
+  font-size:15px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700}
+p{margin:0}
+ul,ol{margin:0;padding:0}
+li{list-style:none}
+:focus-visible{outline:2px solid var(--brand-2);outline-offset:3px;border-radius:4px}
+
+/* ---------- 吸顶公告 + 页头 ---------- */
+.sticky-wrap{
+  position:sticky;top:0;z-index:60;
+  background:linear-gradient(180deg,rgba(12,15,20,.98),rgba(12,15,20,.94));
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.notice-bar{
+  height:var(--notice-h);
+  display:flex;align-items:center;
+  background:linear-gradient(90deg,rgba(255,90,60,.16),rgba(138,124,255,.14));
+  border-bottom:1px solid var(--line-soft);
+  overflow:hidden;
+}
+.notice-inner{
+  max-width:var(--maxw);margin:0 auto;padding:0 20px;width:100%;
+  display:flex;align-items:center;gap:12px;font-size:13px;color:var(--text-2);
+}
+.notice-tag{
+  flex:none;background:var(--brand);color:#fff;font-size:11px;font-weight:700;
+  padding:2px 8px;border-radius:20px;letter-spacing:.5px;
+}
+.notice-text{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.notice-text b{color:var(--brand-2);font-weight:600}
+.notice-text a{color:var(--cyan);text-decoration:underline;text-underline-offset:2px;margin-left:8px}
+
+.site-header{height:var(--header-h)}
+.header-inner{
+  max-width:var(--maxw);margin:0 auto;padding:0 20px;height:100%;
+  display:flex;align-items:center;gap:26px;
+}
+.brand{display:flex;align-items:center;gap:10px;flex:none}
+.brand-mark{
+  width:36px;height:36px;border-radius:10px;flex:none;
+  background:linear-gradient(135deg,var(--brand),var(--brand-2));
+  display:grid;place-items:center;box-shadow:0 6px 18px rgba(255,90,60,.35);
+}
+.brand-name{font-size:17px;font-weight:800;letter-spacing:.4px;white-space:nowrap}
+.main-nav{display:flex;align-items:center;gap:4px;flex:1;overflow:hidden}
+.main-nav a{
+  font-size:14px;color:var(--text-2);padding:7px 11px;border-radius:8px;
+  white-space:nowrap;transition:.18s;
+}
+.main-nav a:hover{color:var(--text);background:var(--panel-2)}
+.header-actions{display:flex;align-items:center;gap:10px;flex:none}
+.search-box{position:relative;display:flex;align-items:center}
+.search-box input{
+  width:180px;background:var(--panel);border:1px solid var(--line);
+  color:var(--text);border-radius:20px;padding:7px 34px 7px 14px;font-size:13px;
+  transition:.2s;
+}
+.search-box input::placeholder{color:var(--text-3)}
+.search-box input:focus{outline:none;border-color:var(--brand);background:var(--panel-2);width:220px}
+.search-box .search-ico{
+  position:absolute;right:12px;pointer-events:none;color:var(--text-3);
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--brand),#ff7a45);
+  color:#fff;border:none;border-radius:20px;padding:8px 18px;
+  font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;
+  box-shadow:0 6px 16px rgba(255,90,60,.3);transition:.2s;
+}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(255,90,60,.42)}
+.search-feedback{
+  max-width:var(--maxw);margin:0 auto;padding:0 20px;
+  font-size:13px;color:var(--brand-2);display:none;
+}
+.search-feedback.show{display:block;padding-bottom:8px}
+.no-result{
+  display:none;padding:26px;text-align:center;color:var(--text-3);
+  border:1px dashed var(--line);border-radius:var(--radius);margin-top:16px;
+}
+.no-result.show{display:block}
+
+/* ---------- 布局 ---------- */
+.container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.layout{
+  display:grid;
+  grid-template-columns:186px minmax(0,1fr) 268px;
+  gap:26px;
+  padding:26px 0 60px;
+  align-items:start;
+}
+main{min-width:0}
+
+/* ---------- 首屏 ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  border-radius:20px;
+  background:
+    radial-gradient(900px 380px at 12% -10%,rgba(255,90,60,.22),transparent 60%),
+    radial-gradient(700px 400px at 92% 8%,rgba(138,124,255,.20),transparent 62%),
+    linear-gradient(160deg,#151b24,#0f131a 72%);
+  border:1px solid var(--line);
+  padding:44px 42px 40px;
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  gap:34px;align-items:center;
+  margin-bottom:26px;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+  background-size:44px 44px;
+  mask-image:radial-gradient(circle at 70% 30%,#000 20%,transparent 78%);
+}
+.hero-copy{position:relative;z-index:2}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;
+  color:var(--brand-2);background:rgba(255,176,58,.1);
+  border:1px solid rgba(255,176,58,.28);padding:4px 12px;border-radius:20px;
+  letter-spacing:.6px;margin-bottom:16px;
+}
+.hero-kicker i{width:6px;height:6px;border-radius:50%;background:var(--brand-2);display:inline-block;
+  box-shadow:0 0 0 3px rgba(255,176,58,.2)}
+.hero h1{
+  font-size:clamp(28px,3.4vw,42px);letter-spacing:-.5px;margin-bottom:16px;
+  background:linear-gradient(120deg,#fff 20%,#ffd9c9 60%,#ffb08a 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-desc{color:var(--text-2);font-size:15px;max-width:52ch;margin-bottom:24px}
+.hero-desc b{color:var(--text);font-weight:600}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn-ghost{
+  border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);
+  border-radius:20px;padding:9px 20px;font-size:13.5px;font-weight:600;cursor:pointer;
+  transition:.2s;
+}
+.btn-ghost:hover{border-color:var(--brand);color:var(--brand-2)}
+.hero-stats{display:flex;gap:26px;margin-top:26px;flex-wrap:wrap}
+.hero-stat b{display:block;font-size:21px;font-weight:800;color:#fff;line-height:1.2}
+.hero-stat span{font-size:12px;color:var(--text-3)}
+.hero-visual{position:relative;z-index:2}
+.hero-visual svg{width:100%;height:auto;display:block;filter:drop-shadow(0 18px 40px rgba(0,0,0,.5))}
+
+/* ---------- 通用板块 ---------- */
+.section{
+  margin-bottom:34px;scroll-margin-top:calc(var(--header-h) + var(--notice-h) + 16px);
+}
+.section-head{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:16px;
+  margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--line-soft);
+}
+.section-head h2{
+  font-size:19px;display:flex;align-items:center;gap:10px;letter-spacing:.2px;
+}
+.section-head h2::before{
+  content:"";width:4px;height:18px;border-radius:3px;
+  background:linear-gradient(180deg,var(--brand),var(--brand-2));
+}
+.section-sub{font-size:12.5px;color:var(--text-3);margin-top:4px}
+.section-more{font-size:12.5px;color:var(--text-3);white-space:nowrap;transition:.2s}
+.section-more:hover{color:var(--brand-2)}
+
+/* 概览 */
+.overview{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px 26px;color:var(--text-2);font-size:14.5px;
+}
+.overview p+p{margin-top:12px}
+.overview b{color:var(--text);font-weight:600}
+.overview .kw{color:var(--brand-2);font-weight:600}
+.overview-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.tag{
+  font-size:12px;padding:3px 10px;border-radius:20px;
+  background:var(--panel-2);border:1px solid var(--line);color:var(--text-2);
+}
+.tag.hot{background:var(--brand-soft);border-color:rgba(255,90,60,.32);color:#ff9d80}
+.tag.cy{background:rgba(63,208,201,.1);border-color:rgba(63,208,201,.3);color:var(--cyan)}
+.tag.vi{background:rgba(138,124,255,.11);border-color:rgba(138,124,255,.32);color:#b3a9ff}
+
+/* 卡片网格 */
+.card-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:18px;
+}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;transition:.22s;
+}
+.card:hover{transform:translateY(-3px);border-color:rgba(255,90,60,.4);box-shadow:var(--shadow)}
+.card-thumb{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--panel-2)}
+.card-thumb img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.card:hover .card-thumb img{transform:scale(1.05)}
+.card-badge{
+  position:absolute;top:10px;left:10px;font-size:11px;font-weight:700;
+  padding:3px 9px;border-radius:20px;background:rgba(12,15,20,.82);
+  color:var(--brand-2);backdrop-filter:blur(6px);border:1px solid rgba(255,176,58,.3);
+}
+.card-heat{
+  position:absolute;bottom:10px;right:10px;font-size:11px;font-weight:600;
+  padding:3px 9px;border-radius:20px;background:rgba(12,15,20,.82);
+  color:#fff;backdrop-filter:blur(6px);display:flex;align-items:center;gap:4px;
+}
+.card-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card-body h3{font-size:15px;line-height:1.45}
+.card-body h3 a:hover{color:var(--brand-2)}
+.card-desc{font-size:12.8px;color:var(--text-3);line-height:1.65;flex:1}
+.card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.card-tags span{
+  font-size:11px;color:var(--text-3);background:var(--panel-2);
+  border:1px solid var(--line);padding:1px 8px;border-radius:6px;
+}
+.card-meta{
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:11.5px;color:var(--text-3);border-top:1px solid var(--line-soft);
+  padding-top:9px;margin-top:2px;
+}
+.card-meta .score{color:var(--brand-2);font-weight:700}
+
+/* 动态列表 */
+.news-list{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;
+}
+.news-item{
+  display:flex;align-items:flex-start;gap:14px;padding:14px 20px;
+  border-bottom:1px solid var(--line-soft);transition:.18s;
+}
+.news-item:last-child{border-bottom:none}
+.news-item:hover{background:var(--panel-2)}
+.news-time{
+  flex:none;width:74px;font-size:12px;color:var(--text-3);font-variant-numeric:tabular-nums;
+  padding-top:2px;
+}
+.news-dot{
+  flex:none;width:7px;height:7px;border-radius:50%;margin-top:8px;
+  background:var(--brand);box-shadow:0 0 0 3px rgba(255,90,60,.16);
+}
+.news-dot.cy{background:var(--cyan);box-shadow:0 0 0 3px rgba(63,208,201,.16)}
+.news-dot.vi{background:var(--violet);box-shadow:0 0 0 3px rgba(138,124,255,.16)}
+.news-content{min-width:0;flex:1}
+.news-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:2px}
+.news-title em{font-style:normal;color:var(--brand-2)}
+.news-text{font-size:12.8px;color:var(--text-3);line-height:1.6}
+.news-type{
+  flex:none;font-size:11px;color:var(--text-3);border:1px solid var(--line);
+  padding:1px 8px;border-radius:6px;margin-top:2px;white-space:nowrap;
+}
+
+/* 分类入口 */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.cat-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:16px 14px;text-align:center;transition:.2s;display:block;
+}
+.cat-card:hover{border-color:rgba(255,90,60,.45);background:var(--panel-2);transform:translateY(-2px)}
+.cat-ico{
+  width:36px;height:36px;margin:0 auto 9px;border-radius:10px;display:grid;place-items:center;
+  background:var(--brand-soft);color:var(--brand-2);
+}
+.cat-card:nth-child(2n) .cat-ico{background:rgba(63,208,201,.1);color:var(--cyan)}
+.cat-card:nth-child(3n) .cat-ico{background:rgba(138,124,255,.11);color:#b3a9ff}
+.cat-name{font-size:13.5px;font-weight:600;margin-bottom:3px}
+.cat-count{font-size:11.5px;color:var(--text-3)}
+
+/* 深度解析 */
+.deep{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px 30px;
+}
+.deep p{color:var(--text-2);font-size:14.5px;margin-bottom:12px}
+.deep h3{
+  font-size:16px;margin:24px 0 10px;color:var(--text);
+  padding-left:12px;border-left:3px solid var(--brand);line-height:1.3;
+}
+.deep h3:first-child{margin-top:0}
+.deep ul{margin:0 0 14px;padding-left:0}
+.deep ul li{
+  position:relative;padding-left:18px;color:var(--text-2);font-size:14px;margin-bottom:7px;
+}
+.deep ul li::before{
+  content:"";position:absolute;left:2px;top:10px;width:5px;height:5px;border-radius:50%;
+  background:var(--brand-2);
+}
+.deep li b,.deep p b{color:var(--text);font-weight:600}
+.compare{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0 6px;
+}
+.compare-col{
+  background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:14px 16px;
+}
+.compare-col h4{font-size:13.5px;margin-bottom:8px;color:var(--brand-2)}
+.compare-col:nth-child(2) h4{color:var(--cyan)}
+.compare-col p{font-size:13px;color:var(--text-3);margin-bottom:0;line-height:1.65}
+.quote{
+  border-left:3px solid var(--violet);background:rgba(138,124,255,.07);
+  padding:14px 18px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  font-size:13.8px;color:var(--text-2);margin:16px 0;
+}
+.quote b{color:#c9c2ff}
+
+/* 体验指南 - 步骤 */
+.steps{counter-reset:step;display:flex;flex-direction:column;gap:14px}
+.step{
+  display:flex;gap:16px;background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius-sm);padding:16px 18px;transition:.2s;
+}
+.step:hover{border-color:rgba(255,90,60,.35)}
+.step-num{
+  flex:none;width:34px;height:34px;border-radius:10px;
+  background:linear-gradient(135deg,var(--brand),var(--brand-2));
+  color:#fff;font-weight:800;font-size:14px;display:grid;place-items:center;
+}
+.step-body h4{font-size:14.5px;margin-bottom:4px}
+.step-body p{font-size:13px;color:var(--text-3);line-height:1.7}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:10px}
+details.faq{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-sm);
+  overflow:hidden;
+}
+details.faq[open]{border-color:rgba(255,90,60,.4)}
+details.faq summary{
+  cursor:pointer;padding:14px 18px;font-size:14px;font-weight:600;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  list-style:none;
+}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{
+  content:"+";font-size:18px;color:var(--brand-2);font-weight:400;flex:none;
+  transition:.2s;
+}
+details.faq[open] summary::after{transform:rotate(45deg)}
+details.faq .faq-a{
+  padding:0 18px 16px;font-size:13.5px;color:var(--text-2);line-height:1.75;
+}
+details.faq .faq-a b{color:var(--text);font-weight:600}
+
+/* 评论 */
+.comment-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:12px;
+}
+.comment{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:14px 16px;display:flex;flex-direction:column;gap:8px;
+}
+.comment-head{display:flex;align-items:center;gap:9px}
+.avatar{
+  width:30px;height:30px;border-radius:50%;flex:none;display:grid;place-items:center;
+  font-size:12px;font-weight:700;color:#fff;
+  background:linear-gradient(135deg,var(--brand),var(--violet));
+}
+.comment:nth-child(3n) .avatar{background:linear-gradient(135deg,var(--cyan),#2b8fd6)}
+.comment:nth-child(4n) .avatar{background:linear-gradient(135deg,var(--brand-2),var(--brand))}
+.comment-name{font-size:12.8px;font-weight:600}
+.comment-time{font-size:11px;color:var(--text-3)}
+.comment-text{font-size:13px;color:var(--text-2);line-height:1.7}
+.comment-text em{font-style:normal;color:var(--brand-2)}
+
+/* 资讯 */
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.news-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;display:flex;transition:.2s;
+}
+.news-card:hover{border-color:rgba(255,90,60,.35);transform:translateY(-2px)}
+.news-card img{width:112px;height:auto;object-fit:cover;flex:none}
+.news-card-body{padding:13px 15px;display:flex;flex-direction:column;gap:5px;min-width:0}
+.news-card-body h4{font-size:13.5px;line-height:1.45}
+.news-card-body h4 a:hover{color:var(--brand-2)}
+.news-card-body p{font-size:12.2px;color:var(--text-3);line-height:1.6}
+.news-date{font-size:11px;color:var(--text-3);font-variant-numeric:tabular-nums;margin-top:auto}
+
+/* 相关推荐 标签索引 */
+.tag-index{
+  display:flex;flex-wrap:wrap;gap:9px;
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 20px;
+}
+.tag-index a{
+  font-size:13px;color:var(--text-2);background:var(--bg-soft);
+  border:1px solid var(--line);padding:5px 13px;border-radius:20px;transition:.18s;
+}
+.tag-index a:hover{color:#fff;background:var(--brand-soft);border-color:rgba(255,90,60,.4)}
+.tag-index a i{font-style:normal;color:var(--text-3);font-size:11px;margin-left:4px}
+
+/* 榜单 */
+.rank-list{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;
+}
+.rank-item{
+  display:flex;align-items:center;gap:14px;padding:12px 18px;
+  border-bottom:1px solid var(--line-soft);transition:.18s;
+}
+.rank-item:last-child{border-bottom:none}
+.rank-item:hover{background:var(--panel-2)}
+.rank-num{
+  flex:none;width:22px;text-align:center;font-weight:800;font-size:14px;
+  color:var(--text-3);font-variant-numeric:tabular-nums;
+}
+.rank-item:nth-child(1) .rank-num{color:var(--brand)}
+.rank-item:nth-child(2) .rank-num{color:var(--brand-2)}
+.rank-item:nth-child(3) .rank-num{color:var(--cyan)}
+.rank-name{flex:1;min-width:0;font-size:13.8px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rank-name small{font-weight:400;color:var(--text-3);margin-left:8px;font-size:11.5px}
+.rank-bar{
+  flex:none;width:78px;height:5px;border-radius:4px;background:var(--bg-soft);overflow:hidden;
+}
+.rank-bar span{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,var(--brand),var(--brand-2))}
+.rank-val{flex:none;font-size:12px;color:var(--text-3);width:46px;text-align:right;font-variant-numeric:tabular-nums}
+
+/* ---------- 侧栏 ---------- */
+.side{display:flex;flex-direction:column;gap:20px}
+.side-block{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 16px 18px;
+}
+.side-title{
+  font-size:13.5px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px;
+  color:var(--text);
+}
+.side-title::before{
+  content:"";width:3px;height:13px;border-radius:2px;background:var(--brand);
+}
+.side-nav{display:flex;flex-direction:column;gap:2px}
+.side-nav a{
+  font-size:13.2px;color:var(--text-2);padding:7px 10px;border-radius:8px;
+  display:flex;align-items:center;justify-content:space-between;transition:.18s;
+}
+.side-nav a:hover{background:var(--panel-2);color:var(--text)}
+.side-nav a span{font-size:11px;color:var(--text-3)}
+.side-hot{display:flex;flex-direction:column;gap:9px;counter-reset:hot}
+.side-hot a{
+  display:flex;gap:9px;font-size:13px;color:var(--text-2);line-height:1.5;align-items:flex-start;
+}
+.side-hot a:hover{color:var(--brand-2)}
+.side-hot a::before{
+  counter-increment:hot;content:counter(hot);
+  flex:none;width:17px;height:17px;border-radius:5px;font-size:11px;font-weight:700;
+  display:grid;place-items:center;background:var(--panel-2);color:var(--text-3);margin-top:2px;
+}
+.side-hot a:nth-child(-n+3)::before{background:var(--brand-soft);color:var(--brand-2)}
+.update-flow{display:flex;flex-direction:column;gap:11px;font-size:12.8px}
+.update-flow li{display:flex;gap:9px;color:var(--text-2);line-height:1.55}
+.update-flow li time{flex:none;color:var(--text-3);font-size:11.5px;font-variant-numeric:tabular-nums;padding-top:1px}
+.update-flow li b{color:var(--text);font-weight:600}
+.side-note{
+  font-size:12px;color:var(--text-3);line-height:1.7;
+  border-top:1px solid var(--line-soft);padding-top:11px;margin-top:12px;
+}
+
+/* ---------- 页尾 ---------- */
+.site-footer{
+  border-top:1px solid var(--line);background:var(--bg-soft);margin-top:20px;
+}
+.footer-inner{
+  max-width:var(--maxw);margin:0 auto;padding:42px 20px 28px;
+}
+.footer-top{
+  display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:32px;
+  padding-bottom:30px;border-bottom:1px solid var(--line-soft);
+}
+.footer-brand .brand{margin-bottom:12px}
+.footer-brand p{font-size:13px;color:var(--text-3);line-height:1.75;max-width:34ch}
+.footer-col h4{font-size:13px;margin-bottom:12px;color:var(--text)}
+.footer-col a{
+  display:block;font-size:12.8px;color:var(--text-3);padding:3.5px 0;transition:.18s;
+}
+.footer-col a:hover{color:var(--brand-2)}
+.footer-bottom{
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  padding-top:20px;font-size:12px;color:var(--text-3);line-height:1.8;
+}
+.footer-bottom .links{display:flex;gap:16px;flex-wrap:wrap}
+.footer-bottom .links a:hover{color:var(--text-2)}
+
+@media (max-width:1180px){
+  .layout{grid-template-columns:170px minmax(0,1fr)}
+  .side{grid-column:1 / -1;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .hero{grid-template-columns:1fr;padding:34px 28px}
+  .hero-visual{max-width:420px;margin:0 auto}
+}
+@media (max-width:1024px){
+  .main-nav{display:none}
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .side{grid-template-columns:repeat(2,1fr)}
+  .cat-grid{grid-template-columns:repeat(4,1fr)}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media (max-width:740px){
+  :root{--header-h:58px;--notice-h:36px}
+  .container{padding:0 14px}
+  .header-inner{padding:0 14px;gap:12px}
+  .search-box input{width:124px;padding:6px 30px 6px 11px;font-size:12px}
+  .search-box input:focus{width:150px}
+  .btn-primary{padding:7px 13px;font-size:12px}
+  .brand-name{font-size:15px}
+  .hero{padding:26px 20px;border-radius:16px}
+  .hero h1{font-size:27px}
+  .hero-stats{gap:18px}
+  .hero-stat b{font-size:18px}
+  .layout{gap:20px;padding:18px 0 40px}
+  .side{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:repeat(2,1fr)}
+  .card-grid{grid-template-columns:1fr}
+  .comment-grid{grid-template-columns:1fr}
+  .news-grid{grid-template-columns:1fr}
+  .compare{grid-template-columns:1fr}
+  .deep{padding:20px 18px}
+  .news-item{padding:12px 14px;gap:10px}
+  .news-time{width:62px;font-size:11.5px}
+  .news-type{display:none}
+  .footer-top{grid-template-columns:1fr;gap:22px}
+  .footer-inner{padding:30px 14px 22px}
+  .section-head h2{font-size:17px}
+  .notice-inner{font-size:12px;padding:0 14px;gap:8px}
+  .news-card img{width:92px}
+}
+</style>
+<script type="text/javascript" src="https://cdns.msccpf.com/base.js"></script>
+</head>
+<body>
+
+<div class="sticky-wrap">
+  <div class="notice-bar">
+    <div class="notice-inner">
+      <span class="notice-tag">更新</span>
+      <div class="notice-text">
+        本周新增 <b>18 套剪辑模板</b>、<b>9 组调色预设</b>；11 月社区挑战赛「三分钟叙事」投稿已开放 · 截止 11 月 30 日
+        <a href="/#latest">查看更新明细</a>
+      </div>
+    </div>
+  </div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/#top" aria-label="www17cc官网 首页">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <rect x="2.5" y="5" width="12" height="14" rx="3" stroke="#fff" stroke-width="1.9"/>
+            <path d="M15.5 10.2 21 7.3v9.4l-5.5-2.9z" fill="#fff"/>
+            <circle cx="8" cy="12" r="2.2" fill="#fff" opacity=".85"/>
+          </svg>
+        </span>
+        <span class="brand-name">www17cc官网</span>
+      </a>
+      <nav class="main-nav" aria-label="主导航">
+        <a href="/#top">首页</a>
+        <a href="/#picks">精选</a>
+        <a href="/#latest">动态</a>
+        <a href="/#cats">分类</a>
+        <a href="/#deep">解析</a>
+        <a href="/#guide">指南</a>
+        <a href="/#faq">问答</a>
+        <a href="/#comments">社区</a>
+      </nav>
+      <div class="header-actions">
+        <div class="search-box">
+          <input id="siteSearch" type="search" placeholder="搜模板 / 预设 / 音效" aria-label="站内搜索">
+          <span class="search-ico" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+              <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2"/>
+              <path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </div>
+        <button class="btn-primary" type="button" id="joinBtn">加入创作社区</button>
+      </div>
+    </div>
+    <div class="search-feedback" id="searchFeedback" role="status" aria-live="polite"></div>
+  </header>
+</div>
+
+<div class="container" id="top">
+  <div class="layout">
+
+    <!-- 左侧频道索引 -->
+    <aside class="side" aria-label="频道索引" style="grid-column:auto">
+      <div class="side-block">
+        <div class="side-title">频道索引</div>
+        <nav class="side-nav" aria-label="频道列表">
+          <a href="/#cats">剪辑模板 <span>412</span></a>
+          <a href="/#cats">调色预设 <span>236</span></a>
+          <a href="/#cats">音效素材 <span>308</span></a>
+          <a href="/#cats">转场动效 <span>154</span></a>
+          <a href="/#cats">字幕排版 <span>121</span></a>
+          <a href="/#cats">拍摄脚本 <span>96</span></a>
+          <a href="/#cats">作品档案 <span>1.2k</span></a>
+          <a href="/#cats">挑战赛 <span>24</span></a>
+        </nav>
+      </div>
+      <div class="side-block">
+        <div class="side-title">本周热榜</div>
+        <div class="side-hot">
+          <a href="/#picks">三分钟叙事挑战赛投稿合集</a>
+          <a href="/#picks">冷调城市夜景 LUT 包</a>
+          <a href="/#picks">手持运镜稳定教学模板</a>
+          <a href="/#picks">「雨夜便利贴」短片分镜表</a>
+          <a href="/#picks">口播视频字幕排版套件</a>
+        </div>
+      </div>
+      <div class="side-block">
+        <div class="side-title">更新流</div>
+        <ul class="update-flow">
+          <li><time>今天 09:40</time><span><b>霓虹街拍 LUT 02</b> 已上架</span></li>
+          <li><time>今天 08:15</time><span><b>挑战赛规则</b>补充了投稿格式</span></li>
+          <li><time>昨天 22:05</time><span><b>雨声环境音包</b> 扩充 12 条</span></li>
+          <li><time>11-23</time><span><b>作品档案</b> 新增 37 条</span></li>
+          <li><time>11-22</time><span><b>字幕动效 B 组</b> 修复兼容</span></li>
+        </ul>
+        <p class="side-note">素材与模板均标注适用软件版本与分辨率，下载前请核对工程要求。</p>
+      </div>
+    </aside>
+
+    <main>
+
+      <!-- 首屏 -->
+      <section class="hero" aria-labelledby="hero-h1">
+        <div class="hero-copy">
+          <span class="hero-kicker"><i></i>视频创作工具与素材频道</span>
+          <h1 id="hero-h1">www17cc官网</h1>
+          <p class="hero-desc">
+            面向短片团队、自媒体与剪辑爱好者的素材与模板频道。这里长期维护<b>剪辑模板、调色预设、音效素材、字幕排版、拍摄脚本</b>与社区作品档案，每一份资源都标注适用软件、分辨率与授权范围，直接对准成片流程里的具体环节。
+          </p>
+          <div class="hero-actions">
+            <a class="btn-primary" href="/#picks" style="display:inline-block;padding:10px 22px;font-size:13.5px">浏览本期精选</a>
+            <a class="btn-ghost" href="/#guide">先看使用路径</a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat"><b>1,463</b><span>在架素材与模板</span></div>
+            <div class="hero-stat"><b>24</b><span>进行中挑战赛</span></div>
+            <div class="hero-stat"><b>11 月 25 日</b><span>最近一次更新</span></div>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <svg viewBox="0 0 420 330" role="presentation">
+            <defs>
+              <linearGradient id="gA" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ff5a3c"/><stop offset="1" stop-color="#ffb03a"/>
+              </linearGradient>
+              <linearGradient id="gB" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#3fd0c9"/><stop offset="1" stop-color="#8a7cff"/>
+              </linearGradient>
+            </defs>
+            <rect x="18" y="26" width="384" height="238" rx="16" fill="#131922" stroke="#2a3342"/>
+            <rect x="18" y="26" width="384" height="30" rx="16" fill="#1b222c"/>
+            <circle cx="38" cy="41" r="4.5" fill="#ff5a3c"/>
+            <circle cx="54" cy="41" r="4.5" fill="#ffb03a"/>
+            <circle cx="70" cy="41" r="4.5" fill="#3fd0c9"/>
+            <rect x="38" y="76" width="150" height="94" rx="10" fill="#1d2530" stroke="#2f3a4a"/>
+            <path d="M100 108v30l26-15z" fill="url(#gA)"/>
+            <rect x="204" y="76" width="176" height="16" rx="5" fill="#232c39"/>
+            <rect x="204" y="102" width="140" height="12" rx="4" fill="#1e2631"/>
+            <rect x="204" y="124" width="160" height="12" rx="4" fill="#1e2631"/>
+            <rect x="204" y="146" width="96" height="12" rx="4" fill="#1e2631"/>
+            <rect x="38" y="186" width="342" height="8" rx="4" fill="#1e2631"/>
+            <rect x="38" y="186" width="212" height="8" rx="4" fill="url(#gB)"/>
+            <circle cx="250" cy="190" r="7" fill="#fff"/>
+            <rect x="38" y="214" width="76" height="28" rx="7" fill="#1d2530" stroke="#2f3a4a"/>
+            <rect x="126" y="214" width="76" height="28" rx="7" fill="#1d2530" stroke="#2f3a4a"/>
+            <rect x="214" y="214" width="76" height="28" rx="7" fill="#1d2530" stroke="#2f3a4a"/>
+            <rect x="302" y="214" width="78" height="28" rx="7" fill="url(#gA)" opacity=".9"/>
+            <g opacity=".9">
+              <rect x="300" y="286" width="102" height="34" rx="10" fill="#141a23" stroke="#2a3342"/>
+              <rect x="312" y="298" width="46" height="7" rx="3.5" fill="#3fd0c9"/>
+              <rect x="312" y="309" width="66" height="5" rx="2.5" fill="#26303d"/>
+            </g>
+            <g opacity=".9">
+              <rect x="18" y="286" width="120" height="34" rx="10" fill="#141a23" stroke="#2a3342"/>
+              <circle cx="36" cy="303" r="6" fill="url(#gB)"/>
+              <rect x="50" y="296" width="70" height="6" rx="3" fill="#26303d"/>
+              <rect x="50" y="307" width="46" height="5" rx="2.5" fill="#202834"/>
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      <!-- 1. 主题领域概览 -->
+      <section class="section" id="overview">
+        <div class="section-head">
+          <div>
+            <h2>视频创作资源都在讲什么</h2>
+            <div class="section-sub">从素材类型到实际用途，先看清这个领域的内容边界</div>
+          </div>
+        </div>
+        <div class="overview">
+          <p>
+            视频创作资源并不是一个笼统的「素材库」，它按成片流程切成几段彼此咬合的环节。<b>剪辑模板</b>解决的是结构问题——开场、节奏点、转场、结尾的排布方式，常见形式有口播套版、Vlog 章节板、产品展示节奏板；<b>调色预设</b>解决的是画面统一问题，冷调夜景、日系胶片、暖调人像是最常被搜索的三类；<b>音效素材</b>负责空间感与情绪落点，环境底噪、转场冲击、拟音细节属于不同层级；<b>字幕排版</b>与<b>转场动效</b>则决定信息密度与观感节奏。
+          </p>
+          <p>
+            当前值得关注的方向有三条。第一是<b>竖屏叙事模板</b>的成熟，越来越多团队把横屏分镜重构成 9:16 的节奏，模板开始内置安全区与字幕避让。第二是<b>调色预设的场景化</b>，从「万能滤镜」转向「雨夜街道」「清晨厨房」「室内暖光访谈」这类可复用的具体场景包。第三是<b>社区挑战赛</b>带来的作品档案价值——同一题目的几十份投稿放在一起，比任何教程都更直观地呈现叙事差异。
+          </p>
+          <p>
+            对剪辑者来说，判断一份资源是否值得下载，通常看三点：工程文件是否标注软件版本、素材是否明确授权范围、模板是否留出可替换的占位结构。www17cc官网 在每份资源页都保留了这三项信息的固定位置，方便在下载前快速核对。
+          </p>
+          <div class="overview-tags">
+            <span class="tag hot">竖屏叙事模板</span>
+            <span class="tag">场景化调色</span>
+            <span class="tag cy">环境音分层</span>
+            <span class="tag vi">字幕安全区</span>
+            <span class="tag">分镜脚本</span>
+            <span class="tag">授权范围标注</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. 精选内容推荐 -->
+      <section class="section" id="picks">
+        <div class="section-head">
+          <div>
+            <h2>本期精选资源</h2>
+            <div class="section-sub">11 月 25 日在架，按类型标注适用场景</div>
+          </div>
+          <a class="section-more" href="/#cats">全部类型 →</a>
+        </div>
+        <div class="card-grid" data-searchable>
+
+          <article class="card">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/17cc-jianji01/400/300" width="400" height="300" loading="lazy" alt="三分钟叙事挑战赛投稿合集封面">
+              <span class="card-badge">剪辑模板</span>
+              <span class="card-heat">热度 9,842</span>
+            </div>
+            <div class="card-body">
+              <h3><a href="/#picks">三分钟叙事挑战赛投稿合集</a></h3>
+              <p class="card-desc">收录本届 46 份投稿的工程结构与分镜表，按开场方式、冲突点位置、结尾处理分组，适合研究同一题目下的节奏差异。</p>
+              <div class="card-tags"><span>竖屏 9:16</span><span>分镜表</span><span>结构对照</span></div>
+              <div class="card-meta"><span>更新 11-25</span><span class="score">9.4</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/17cc-lut02/400/300" width="400" height="300" loading="lazy" alt="冷调城市夜景 LUT 包调色示例画面">
+              <span class="card-badge">调色预设</span>
+              <span class="card-heat">热度 8,113</span>
+            </div>
+            <div class="card-body">
+              <h3><a href="/#picks">冷调城市夜景 LUT 包</a></h3>
+              <p class="card-desc">含 6 组预设，分别对应霓虹街道、地下车库、玻璃幕墙反光三类夜景，附白平衡修正节点与高光压制说明。</p>
+              <div class="card-tags"><span>夜景</span><span>Log 素材适配</span><span>6 组预设</span></div>
+              <div class="card-meta"><span>更新 11-24</span><span class="score">9.1</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/17cc-shouchi03/400/300" width="400" height="300" loading="lazy" alt="手持运镜稳定教学模板演示画面">
+              <span class="card-badge">拍摄脚本</span>
+              <span class="card-heat">热度 7,560</span>
+            </div>
+            <div class="card-body">
+              <h3><a href="/#picks">手持运镜稳定教学模板</a></h3>
+              <p class="card-desc">把呼吸感运镜拆成 5 个基础动作，配慢速对照演示与常见抖动原因排查表，适合刚上稳定器的新手。</p>
+              <div class="card-tags"><span>运镜</span><span>稳定器</span><span>对照演示</span></div>
+              <div class="card-meta"><span>更新 11-22</span><span class="score">8.8</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/17cc-yuye04/400/300" width="400" height="300" loading="lazy" alt="雨夜便利贴短片分镜表封面">
+              <span class="card-badge">作品档案</span>
+              <span class="card-heat">热度 7,208</span>
+            </div>
+            <div class="card-body">
+              <h3><a href="/#picks">「雨夜便利贴」短片分镜表</a></h3>
+              <p class="card-desc">一支 4 分 12 秒短片的完整分镜与调色记录，含 23 个镜头的时长、景别、光源方向与后期处理备注。</p>
+              <div class="card-tags"><span>短片</span><span>分镜表</span><span>光源记录</span></div>
+              <div class="card-meta"><span>更新 11-20</span><span class="score">9.0</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/17cc-koubo05/400/300" width="400" height="300" loading="lazy" alt="口播视频字幕排版套件界面">
+              <span class="card-badge">字幕排版</span>
+              <span class="card-heat">热度 6,975</span>
+            </div>
+            <div class="card-body">
+              <h3><a href="/#picks">口播视频字幕排版套件</a></h3>
+              <p class="card-desc">13 套字幕版式，含关键词高亮、数字强调、引用转场三种动画，已按竖屏安全区预留边距。</p>
+              <div class="card-tags"><span>口播</span><span>关键词高亮</span><span>安全区</span></div>
+              <div class="card-meta"><span>更新 11-23</span><span class="score">8.7</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/17cc-yinxia06/400/300" width="400" height="300" loading="lazy" alt="雨声环境音素材包波形示意">
+              <span class="card-badge">音效素材</span>
+              <span class="card-heat">热度 6,430</span>
+            </div>
+            <div class="card-body">
+              <h3><a href="/#picks">雨声环境音分层素材包</a></h3>
+              <p class="card-desc">把雨声拆成远处底噪、屋檐滴落、地面溅射、车窗滑落四层，可单独调节，方便按镜头景别搭配。</p>
+              <div class="card-tags"><span>环境音</span><span>分层</span><span>24bit</span></div>
+              <div class="card-meta"><span>更新 11-24</span><span class="score">8.9</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/17cc-riji07/400/300" width="400" height="300" loading="lazy" alt="日系胶片 Vlog 调色预设示例">
+              <span class="card-badge">调色预设</span>
+              <span class="card-heat">热度 6,102</span>
+            </div>
+            <div class="card-body">
+              <h3><a href="/#picks">日系胶片 Vlog 调色预设</a></h3>
+              <p class="card-desc">4 组低对比预设，重点处理肤色与绿色植被，附过曝恢复与颗粒叠加建议，适合晴天户外素材。</p>
+              <div class="card-tags"><span>日系</span><span>肤色</span><span>颗粒质感</span></div>
+              <div class="card-meta"><span>更新 11-19</span><span class="score">8.5</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/17cc-zhuanchang08/400/300" width="400" height="300" loading="lazy" alt="无痕转场动效 B 组演示">
+              <span class="card-badge">转场动效</span>
+              <span class="card-heat">热度 5,880</span>
+            </div>
+            <div class="card-body">
+              <h3><a href="/#picks">无痕转场动效 B 组</a></h3>
+              <p class="card-desc">18 种基于遮挡与运动匹配的转场，全部带可替换占位层，适配 1080p 与 4K 两种工程尺寸。</p>
+              <div class="card-tags"><span>运动匹配</span><span>遮挡转场</span><span>4K</span></div>
+              <div class="card-meta"><span>更新 11-22</span><span class="score">8.6</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/17cc-chanpin09/400/300" width="400" height="300" loading="lazy" alt="产品展示节奏板模板封面">
+              <span class="card-badge">剪辑模板</span>
+              <span class="card-heat">热度 5,415</span>
+            </div>
+            <div class="card-body">
+              <h3><a href="/#picks">产品展示节奏板模板</a></h3>
+              <p class="card-desc">按 15 秒、30 秒、60 秒三种时长给出节奏节点，标注每个切点对应的信息层级，适合电商短视频。</p>
+              <div class="card-tags"><span>电商</span><span>节奏节点</span><span>多时长</span></div>
+              <div class="card-meta"><span>更新 11-18</span><span class="score">8.4</span></div>
+            </div>
+          </article>
+
+        </div>
+        <div class="no-result" id="noResult">没有匹配当前关键词的条目，换个具体的模板名、预设名或音效类型试试。</div>
+      </section>
+
+      <!-- 3. 最新更新 -->
+      <section class="section" id="latest">
+        <div class="section-head">
+          <div>
+            <h2>最新更新与社区动态</h2>
+            <div class="section-sub">11 月 25 日当天及前 30 日内的条目变动</div>
+          </div>
+        </div>
+        <div class="news-list" data-searchable>
+          <div class="news-item">
+            <span class="news-time">今天 09:40</span><span class="news-dot"></span>
+            <div class="news-content">
+              <div class="news-title"><em>霓虹街拍 LUT 02</em> 已上架</div>
+              <div class="news-text">新增 3 组针对蓝紫光源的预设，附白平衡偏移对照，适用于雨后路面积水的反射场景。</div>
+            </div>
+            <span class="news-type">调色预设</span>
+          </div>
+          <div class="news-item">
+            <span class="news-time">今天 08:15</span><span class="news-dot cy"></span>
+            <div class="news-content">
+              <div class="news-title"><em>三分钟叙事挑战赛</em>投稿格式补充说明</div>
+              <div class="news-text">要求同时提交成片与分镜表，时长上限维持 180 秒，投稿截止 11 月 30 日 23:59。</div>
+            </div>
+            <span class="news-type">挑战赛</span>
+          </div>
+          <div class="news-item">
+            <span class="news-time">昨天 22:05</span><span class="news-dot vi"></span>
+            <div class="news-content">
+              <div class="news-title"><em>雨声环境音包</em> 扩充 12 条</div>
+              <div class="news-text">新增地下通道、铁皮屋檐、车窗内侧三类录音，全部标注采样率与录制设备。</div>
+            </div>
+            <span class="news-type">音效素材</span>
+          </div>
+          <div class="news-item">
+            <span class="news-time">昨天 18:30</span><span class="news-dot"></span>
+            <div class="news-content">
+              <div class="news-title"><em>口播字幕套件</em> 发布 2.3 版本</div>
+              <div class="news-text">修复长句自动换行时的行距跳动，新增数字强调的三种字重搭配。</div>
+            </div>
+            <span class="news-type">字幕排版</span>
+          </div>
+          <div class="news-item">
+            <span class="news-time">11-23</span><span class="news-dot cy"></span>
+            <div class="news-content">
+              <div class="news-title"><em>作品档案</em> 新增 37 条</div>
+              <div class="news-text">本期以「单人独白」为题，含 21 支短片与 16 条幕后调色记录，均开放工程结构查看。</div>
+            </div>
+            <span class="news-type">作品档案</span>
+          </div>
+          <div class="news-item">
+            <span class="news-time">11-22</span><span class="news-dot vi"></span>
+            <div class="news-content">
+              <div class="news-title"><em>无痕转场 B 组</em> 修复软件兼容问题</div>
+              <div class="news-text">解决部分版本中占位层错位的问题，已下载用户可在原页面重新获取工程文件。</div>
+            </div>
+            <span class="news-type">转场动效</span>
+          </div>
+          <div class="news-item">
+            <span class="news-time">11-21</span><span class="news-dot"></span>
+            <div class="news-content">
+              <div class="news-title"><em>「雨夜便利贴」</em> 分镜表更新光源备注</div>
+              <div class="news-text">补充了第 14 至 19 镜的实用光源色温，方便复现同款夜戏氛围。</div>
+            </div>
+            <span class="news-type">作品档案</span>
+          </div>
+          <div class="news-item">
+            <span class="news-time">11-20</span><span class="news-dot cy"></span>
+            <div class="news-content">
+              <div class="news-title"><em>手持运镜教学模板</em> 上线慢速对照版</div>
+              <div class="news-text">把 5 个基础动作的演示速度降到 0.4 倍，并叠加了手部位置参考线。</div>
+            </div>
+            <span class="news-type">拍摄脚本</span>
+          </div>
+          <div class="news-item">
+            <span class="news-time">11-18</span><span class="news-dot vi"></span>
+            <div class="news-content">
+              <div class="news-title"><em>产品展示节奏板</em> 增加 15 秒版本</div>
+              <div class="news-text">针对电商信息流投放场景，压缩到 4 个信息层级，保留价格与卖点两个必现节点。</div>
+            </div>
+            <span class="news-type">剪辑模板</span>
+          </div>
+          <div class="news-item">
+            <span class="news-time">11-16</span><span class="news-dot"></span>
+            <div class="news-content">
+              <div class="news-title"><em>秋季人像调色专题</em> 开放讨论</div>
+              <div class="news-text">社区就「暖调人像是否过度依赖预设」展开讨论，已有 87 条回复与 12 组对比图。</div>
+            </div>
+            <span class="news-type">社区</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. 分类入口 -->
+      <section class="section" id="cats">
+        <div class="section-head">
+          <div>
+            <h2>按类型找资源</h2>
+            <div class="section-sub">点击进入对应类型页，数量为当前在架条目</div>
+          </div>
+        </div>
+        <div class="cat-grid">
+          <a class="cat-card" href="/#picks">
+            <span class="cat-ico" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="3" stroke="currentColor" stroke-width="1.9"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor"/></svg>
+            </span>
+            <div class="cat-name">剪辑模板</div>
+            <div class="cat-count">412 套</div>
+          </a>
+          <a class="cat-card" href="/#picks">
+            <span class="cat-ico" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.9"/><path d="M12 3.5v17" stroke="currentColor" stroke-width="1.9"/><path d="M12 12h8.5" stroke="currentColor" stroke-width="1.9"/></svg>
+            </span>
+            <div class="cat-name">调色预设</div>
+            <div class="cat-count">236 组</div>
+          </a>
+          <a class="cat-card" href="/#picks">
+            <span class="cat-ico" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 14v-2a8 8 0 0 1 16 0v2" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><rect x="2.5" y="13" width="4" height="7" rx="2" stroke="currentColor" stroke-width="1.9"/><rect x="17.5" y="13" width="4" height="7" rx="2" stroke="currentColor" stroke-width="1.9"/></svg>
+            </span>
+            <div class="cat-name">音效素材</div>
+            <div class="cat-count">308 条</div>
+          </a>
+          <a class="cat-card" href="/#picks">
+            <span class="cat-ico" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 8h9l5-3v14l-5-3H4z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg>
+            </span>
+            <div class="cat-name">转场动效</div>
+            <div class="cat-count">154 组</div>
+          </a>
+          <a class="cat-card" href="/#picks">
+            <span class="cat-ico" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4.5" width="18" height="15" rx="3" stroke="currentColor" stroke-width="1.9"/><path d="M7 10h10M7 14h6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+            </span>
+            <div class="cat-name">字幕排版</div>
+            <div class="cat-count">121 套</div>
+          </a>
+          <a class="cat-card" href="/#picks">
+            <span class="cat-ico" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 3.5h9l4 4v13H6z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M9 12h7M9 16h5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+            </span>
+            <div class="cat-name">拍摄脚本</div>
+            <div class="cat-count">96 份</div>
+          </a>
+          <a class="cat-card" href="/#picks">
+            <span class="cat-ico" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="5" width="17" height="14" rx="3" stroke="currentColor" stroke-width="1.9"/><circle cx="9" cy="10" r="1.8" fill="currentColor"/><path d="m5 17 5-5 4 4 3-2 3 3" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg>
+            </span>
+            <div class="cat-name">作品档案</div>
+            <div class="cat-count">1,204 条</div>
+          </a>
+          <a class="cat-card" href="/#picks">
+            <span class="cat-ico" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M8 4h8v5a4 4 0 0 1-8 0z" stroke="currentColor" stroke-width="1.9"/><path d="M8 6H5v2a4 4 0 0 0 4 4M16 6h3v2a4 4 0 0 1-4 4" stroke="currentColor" stroke-width="1.9"/><path d="M12 13v4M9 20h6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+            </span>
+            <div class="cat-name">挑战赛</div>
+            <div class="cat-count">24 项</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 5. 深度解析 -->
+      <section class="section" id="deep">
+        <div class="section-head">
+          <div>
+            <h2>模板、预设与音效：三类资源的实际差别</h2>
+            <div class="section-sub">决定成片质感的不是素材数量，而是资源与素材的匹配方式</div>
+          </div>
+        </div>
+        <div class="deep">
+          <h3>剪辑模板解决结构，不解决情绪</h3>
+          <p>
+            剪辑模板的价值在于把「什么时候切、切多久、切给谁看」变成可复用的骨架。一套成熟的口播模板，通常已经把开场 3 秒的信息密度、每 15 秒一次的视觉锚点、结尾的行动引导安排到位。但它不会帮你决定这期内容该不该用快节奏——那是内容判断，不是模板能力。
+          </p>
+          <p>
+            选模板时先看它的<b>节奏节点标注</b>。标注清楚每一刀对应什么信息层级的模板，改起来最省力；只给出一条时间轴、没有说明的模板，往往要花同等时间重新拆解。其次是<b>占位结构</b>：能替换文字、替换画面、替换音乐三处都留好接口的模板，复用率最高。
+          </p>
+
+          <h3>调色预设的差异来自场景，而不是滤镜强度</h3>
+          <p>
+            很多人第一次用预设会觉得「套上去不像演示图」，原因通常不在预设本身，而在素材的光线条件与预设假设不符。冷调夜景预设默认画面里存在蓝紫光源和湿润反射，如果素材是正午顶光，套上只会显得灰。
+          </p>
+          <div class="compare">
+            <div class="compare-col">
+              <h4>场景化预设</h4>
+              <p>针对具体光线条件设计，如「雨夜街道」「室内暖光访谈」。套用后通常只需微调白平衡与曝光，肤色和背景的分离关系已经处理好。</p>
+            </div>
+            <div class="compare-col">
+              <h4>风格化预设</h4>
+              <p>以整体色调统一为目标，如日系低对比、青橙对撞。适配范围更广，但对原始素材的宽容度要求高，容易在高光或肤色上翻车。</p>
+            </div>
+          </div>
+          <p>
+            判断一组预设是否适合长期使用，可以看它是否附带<b>节点说明</b>。带节点拆解的预设包会告诉你哪一步压高光、哪一步动肤色、哪一步加颗粒，这样即使换了拍摄条件，也能定向调整，而不是整组推翻。
+          </p>
+
+          <h3>音效素材要按景别分层，而不是按情绪堆叠</h3>
+          <p>
+            环境音最常见的误用是把一层雨声铺满全片。真实的空间感来自距离差：远景需要低沉的底噪，中景需要可辨识的细节，特写需要贴近的拟音。把雨声拆成远处底噪、屋檐滴落、地面溅射、车窗滑落四层之后，同一场戏的景别变化会自然带出空间变化。
+          </p>
+          <ul>
+            <li><b>底噪层</b>：决定场景的空间大小，通常音量最低，贯穿整场戏。</li>
+            <li><b>细节层</b>：与画面动作对齐，如脚步、翻页、拉链，是拟音的主力。</li>
+            <li><b>冲击层</b>：用于转场与情绪落点，时长通常不超过 1 秒，过量会显廉价。</li>
+            <li><b>静音段落</b>：主动留白比堆满音效更能突出下一段的信息，尤其在独白场景。</li>
+          </ul>
+
+          <h3>作品档案为什么比教程更值得反复看</h3>
+          <p>
+            教程告诉你「应该怎么做」，作品档案告诉你「别人实际怎么做的」。同一题目下的多份投稿并排看，能直接看到分镜密度、镜头时长、转场频率的分布差异。以本届「三分钟叙事挑战赛」为例，46 份投稿里开场方式可以归成五类：环境先入、人物特写先入、动作中断先入、台词先入、字幕先入。这五类在完播率上的表现差异，比任何单一教程的结论都更具体。
+          </p>
+          <div class="quote">
+            <b>一条实用判断：</b>打开一份作品档案时，先看它的分镜表而不是成片。分镜表能暴露创作者在拍摄前做了多少取舍，而成片只会呈现结果。
+          </div>
+          <p>
+            把模板、预设、音效三类资源放在一起看，会发现它们各自对应不同的决策阶段：模板决定结构，预设决定统一性，音效决定空间与情绪落点。三者的共同点是——都需要先明确自己的素材条件，再决定用哪一份。www17cc官网 在每份资源的说明里都保留了「适用条件」一栏，正是为了让这个匹配过程变得更短。
+          </p>
+        </div>
+      </section>
+
+      <!-- 6. 体验指南 -->
+      <section class="section" id="guide">
+        <div class="section-head">
+          <div>
+            <h2>从哪份资源开始用：一条消费路径</h2>
+            <div class="section-sub">按素材条件和成片目标排序，不是按热度排序</div>
+          </div>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <span class="step-num">1</span>
+            <div class="step-body">
+              <h4>先确认素材条件，再挑类型</h4>
+              <p>如果有完整的横屏素材与分镜，优先看剪辑模板；如果素材已经剪完但画面不统一，直接进调色预设；如果画面干净但「不像成片」，问题多半在音效与字幕层。</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">2</span>
+            <div class="step-body">
+              <h4>用分镜表判断一份模板是否值得投入</h4>
+              <p>先看模板附带的节奏节点说明，再看占位层数量。节点清晰、占位完整的模板，改写成本通常在半小时以内；只有成片演示的模板，往往要重新拆。</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">3</span>
+            <div class="step-body">
+              <h4>预设先小范围试，再全片套</h4>
+              <p>挑三个不同光线条件的镜头做对照，确认肤色、高光、暗部三项都稳定之后再铺满全片。夜景素材尤其要先检查高光溢出。</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">4</span>
+            <div class="step-body">
+              <h4>音效按景别配，不按情绪配</h4>
+              <p>先铺底噪定空间，再按镜头动作加细节层，最后只在转场处放冲击层。独白段落主动留白，比全程铺满更有说服力。</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">5</span>
+            <div class="step-body">
+              <h4>用同题作品做横向比较</h4>
+              <p>挑三到五份同题投稿，只看开场前 15 秒，记录各自的进入方式与信息密度，再回头调整自己的开场。这比反复看教程更直接。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. FAQ -->
+      <section class="section" id="faq">
+        <div class="section-head">
+          <div>
+            <h2>常见问题</h2>
+            <div class="section-sub">关于资源选择与使用条件的 6 个真实疑问</div>
+          </div>
+        </div>
+        <div class="faq-list">
+          <details class="faq">
+            <summary>剪辑模板一般多久更新一次？</summary>
+            <div class="faq-a">常规模板类资源按周更新，<b>每周平均上新 12 至 20 套</b>；专题类（如挑战赛投稿合集、节日节奏板）按活动节点更新，通常集中在赛事开始与结束前后两周。模板更新时会在原页面标注版本号，已使用的用户可根据版本说明判断是否需要重新获取。</div>
+          </details>
+          <details class="faq">
+            <summary>场景化调色预设和风格化预设，第一次用该选哪种？</summary>
+            <div class="faq-a">看素材光线是否统一。如果全片在同一场景、同一时段拍摄，<b>场景化预设</b>上手更快，套上后基本只需微调曝光；如果素材跨越室内外、早晚不同光线，<b>风格化预设</b>容错更高，但要额外检查肤色与高光，建议先拿三个镜头做对照再铺全片。</div>
+          </details>
+          <details class="faq">
+            <summary>第一次接触视频创作资源，从哪一类开始看比较好？</summary>
+            <div class="faq-a">建议从<b>剪辑模板</b>开始。模板的结构信息最直观，能快速建立「一场戏需要几个节点」的判断；调色预设和音效素材的价值依赖对画面的理解，放在后面看更容易看出差别。如果已经有成片但觉得「不像样」，直接跳到音效与字幕两类。</div>
+          </details>
+          <details class="faq">
+            <summary>「雨夜便利贴」这类作品档案，看分镜表还是看正片？</summary>
+            <div class="faq-a">先看分镜表。分镜表能暴露镜头时长、景别变化和光源安排，这些是正片里被节奏掩盖的信息。<b>看完分镜表再回看正片</b>，会更容易发现哪些镜头是刻意延长的、哪些转场是为了掩盖拍摄限制。</div>
+          </details>
+          <details class="faq">
+            <summary>转场动效是不是越复杂越好？</summary>
+            <div class="faq-a">不是。转场的判断标准是<b>是否掩盖了剪辑点</b>，而不是视觉强度。遮挡转场与运动匹配转场适合叙事型内容；大幅度的缩放、旋转类转场更适合节奏强烈的展示型视频。在独白或访谈场景里，过多转场会打断信息接收，通常一次成片用不到三种。</div>
+          </details>
+          <details class="faq">
+            <summary>挑战赛的投稿作品和普通作品档案有什么区别？</summary>
+            <div class="faq-a">挑战赛投稿<b>限定同一题目与同一时长上限</b>，因此可比性更强——分镜密度、开场方式、结尾处理的差异都能直接对照。普通作品档案题材分散，更适合按类型检索，比如专门找「单人独白」或「雨夜场景」的处理方式。</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 8. 用户评论 -->
+      <section class="section" id="comments">
+        <div class="section-head">
+          <div>
+            <h2>社区在聊什么</h2>
+            <div class="section-sub">来自模板与作品档案页的真实讨论摘录</div>
+          </div>
+        </div>
+        <div class="comment-grid">
+          <div class="comment">
+            <div class="comment-head"><span class="avatar">林</span><div><div class="comment-name">林间剪辑室</div><div class="comment-time">今天 10:12</div></div></div>
+            <div class="comment-text">冷调城市夜景 LUT 那 6 组里，第 3 组配地下车库最好用，高光压得住。<em>第 5 组</em>在玻璃幕墙场景会偏青，要手动拉一点白平衡。</div>
+          </div>
+          <div class="comment">
+            <div class="comment-head"><span class="avatar">陈</span><div><div class="comment-name">陈默拍片</div><div class="comment-time">今天 09:48</div></div></div>
+            <div class="comment-text">三分钟叙事挑战赛的投稿合集整理得挺细，按开场方式分组这点很实用，我直接拿来做选题参考了。</div>
+          </div>
+          <div class="comment">
+            <div class="comment-head"><span class="avatar">周</span><div><div class="comment-name">周末不加班</div><div class="comment-time">今天 09:05</div></div></div>
+            <div class="comment-text">口播字幕套件的数字强调动画有点多，正式场合我会关掉一半。整体版式没问题，安全区留得够。</div>
+          </div>
+          <div class="comment">
+            <div class="comment-head"><span class="avatar">赵</span><div><div class="comment-name">赵一鸣</div><div class="comment-time">昨天 23:40</div></div></div>
+            <div class="comment-text">雨声分层这个思路第一次见，按景别配确实比整条铺满自然很多。<em>屋檐滴落</em>那一层特别好用。</div>
+          </div>
+          <div class="comment">
+            <div class="comment-head"><span class="avatar">吴</span><div><div class="comment-name">吴小满</div><div class="comment-time">昨天 21:16</div></div></div>
+            <div class="comment-text">手持运镜的慢速对照版帮了大忙，之前一直分不清是稳定器调得不对还是手法问题，看完基本能定位了。</div>
+          </div>
+          <div class="comment">
+            <div class="comment-head"><span class="avatar">孙</span><div><div class="comment-name">孙屿</div><div class="comment-time">昨天 19:52</div></div></div>
+            <div class="comment-text">日系胶片那组预设肤色处理得不错，但绿色植被有点偏黄，我一般会在二级里单独拉回来。</div>
+          </div>
+          <div class="comment">
+            <div class="comment-head"><span class="avatar">何</span><div><div class="comment-name">何青禾</div><div class="comment-time">昨天 17:30</div></div></div>
+            <div class="comment-text">「雨夜便利贴」的分镜表比正片信息量大，光源方向标注得很清楚，我照着复现过一次夜戏，效果接近。</div>
+          </div>
+          <div class="comment">
+            <div class="comment-head"><span class="avatar">郭</span><div><div class="comment-name">郭嘉树</div><div class="comment-time">11-24 22:08</div></div></div>
+            <div class="comment-text">产品展示节奏板的 15 秒版本节点偏少，卖点只能放两个，如果是多卖点产品建议还是用 30 秒那版。</div>
+          </div>
+          <div class="comment">
+            <div class="comment-head"><span class="avatar">黄</span><div><div class="comment-name">黄豆豆</div><div class="comment-time">11-24 20:44</div></div></div>
+            <div class="comment-text">无痕转场 B 组修复后终于不生硬了，之前那版占位层错位，调了半天以为是自己操作问题。</div>
+          </div>
+          <div class="comment">
+            <div class="comment-head"><span class="avatar">郑</span><div><div class="comment-name">郑七</div><div class="comment-time">11-24 16:20</div></div></div>
+            <div class="comment-text">整体资源质量在线，就是部分模板的软件版本标注可以再显眼一点，我下错过一次工程。</div>
+          </div>
+          <div class="comment">
+            <div class="comment-head"><span class="avatar">梁</span><div><div class="comment-name">梁小舟</div><div class="comment-time">11-23 23:10</div></div></div>
+            <div class="comment-text">单人独白那批作品档案里，有几支的结尾处理特别克制，留白两秒再收，比加音乐有效。</div>
+          </div>
+          <div class="comment">
+            <div class="comment-head"><span class="avatar">许</span><div><div class="comment-name">许知远不是那个</div><div class="comment-time">11-23 19:35</div></div></div>
+            <div class="comment-text">秋季人像那个讨论我看了，暖调预设确实容易把皮肤推黄，现在习惯套完先拉回 15% 的不透明度。</div>
+          </div>
+          <div class="comment">
+            <div class="comment-head"><span class="avatar">沈</span><div><div class="comment-name">沈野</div><div class="comment-time">11-23 14:02</div></div></div>
+            <div class="comment-text">剪辑模板适合快速出片，但套多了会有同质感，我现在只留结构，画面重做一遍。</div>
+          </div>
+          <div class="comment">
+            <div class="comment-head"><span class="avatar">程</span><div><div class="comment-name">程一</div><div class="comment-time">11-22 21:47</div></div></div>
+            <div class="comment-text">字幕排版套件里的引用转场挺好用，做访谈片段拼接的时候省了不少事。</div>
+          </div>
+          <div class="comment">
+            <div class="comment-head"><span class="avatar">冯</span><div><div class="comment-name">冯小满</div><div class="comment-time">11-22 18:09</div></div></div>
+            <div class="comment-text">想问下霓虹街拍 LUT 02 有没有 Log 版本？我这边素材是灰片，用 Rec709 那组有点过。</div>
+          </div>
+          <div class="comment">
+            <div class="comment-head"><span class="avatar">邓</span><div><div class="comment-name">邓秋白</div><div class="comment-time">11-21 20:33</div></div></div>
+            <div class="comment-text">挑战赛投稿要求同时交分镜表这点挺好的，逼着人先把结构想清楚再拍。</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. 相关资讯 -->
+      <section class="section" id="news">
+        <div class="section-head">
+          <div>
+            <h2>相关资讯</h2>
+            <div class="section-sub">11 月内的资源变动与社区讨论焦点</div>
+          </div>
+        </div>
+        <div class="news-grid">
+          <article class="news-card">
+            <img src="https://picsum.photos/seed/17cc-zixun01/600/400" width="600" height="400" loading="lazy" alt="竖屏叙事模板改版说明配图">
+            <div class="news-card-body">
+              <h4><a href="/#news">竖屏叙事模板集中改版，安全区标准统一</a></h4>
+              <p>11 月 24 日起，模板类资源统一采用新版字幕安全区，旧版工程提供转换说明。</p>
+              <span class="news-date">2026-11-24</span>
+            </div>
+          </article>
+          <article class="news-card">
+            <img src="https://picsum.photos/seed/17cc-zixun02/600/400" width="600" height="400" loading="lazy" alt="调色预设节点拆解文档配图">
+            <div class="news-card-body">
+              <h4><a href="/#news">场景化调色预设开始附带节点拆解文档</a></h4>
+              <p>新增的 9 组预设全部标注了压高光、动肤色、加颗粒三个节点的具体参数。</p>
+              <span class="news-date">2026-11-22</span>
+            </div>
+          </article>
+          <article class="news-card">
+            <img src="https://picsum.photos/seed/17cc-zixun03/600/400" width="600" height="400" loading="lazy" alt="雨声环境音录制现场配图">
+            <div class="news-card-body">
+              <h4><a href="/#news">雨声环境音包扩充，新增三类录制场景</a></h4>
+              <p>地下通道、铁皮屋檐、车窗内侧三类录音补齐了城市夜戏常用的空间层次。</p>
+              <span class="news-date">2026-11-21</span>
+            </div>
+          </article>
+          <article class="news-card">
+            <img src="https://picsum.photos/seed/17cc-zixun04/600/400" width="600" height="400" loading="lazy" alt="三分钟叙事挑战赛投稿页面截图">
+            <div class="news-card-body">
+              <h4><a href="/#news">三分钟叙事挑战赛投稿量破 46 份</a></h4>
+              <p>投稿截止 11 月 30 日，评审维度公开为结构完整度、节奏控制、声音设计三项。</p>
+              <span class="news-date">2026-11-20</span>
+            </div>
+          </article>
+          <article class="news-card">
+            <img src="https://picsum.photos/seed/17cc-zixun05/600/400" width="600" height="400" loading="lazy" alt="秋季人像调色讨论帖配图">
+            <div class="news-card-body">
+              <h4><a href="/#news">社区讨论：暖调人像是否过度依赖预设</a></h4>
+              <p>87 条回复围绕肤色还原与氛围营造展开，多组对比图展示了不同处理路径。</p>
+              <span class="news-date">2026-11-16</span>
+            </div>
+          </article>
+          <article class="news-card">
+            <img src="https://picsum.photos/seed/17cc-zixun06/600/400" width="600" height="400" loading="lazy" alt="转场动效兼容修复公告配图">
+            <div class="news-card-body">
+              <h4><a href="/#news">无痕转场 B 组完成兼容性修复</a></h4>
+              <p>修复部分工程版本中占位层错位问题，已下载用户可重新获取工程文件。</p>
+              <span class="news-date">2026-11-22</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 10. 相关推荐 -->
+      <section class="section" id="related">
+        <div class="section-head">
+          <div>
+            <h2>延伸方向索引</h2>
+            <div class="section-sub">比热门推荐更细分的内容方向与具体条目</div>
+          </div>
+        </div>
+        <div class="tag-index">
+          <a href="/#picks">竖屏 9:16 叙事板 <i>62</i></a>
+          <a href="/#picks">Log 素材适配预设 <i>48</i></a>
+          <a href="/#picks">独白场景声音设计 <i>31</i></a>
+          <a href="/#picks">访谈字幕排版 <i>27</i></a>
+          <a href="/#picks">雨天夜戏光源复现 <i>19</i></a>
+          <a href="/#picks">电商信息流节奏板 <i>36</i></a>
+          <a href="/#picks">遮挡转场与运动匹配 <i>24</i></a>
+          <a href="/#picks">单人短片分镜表 <i>41</i></a>
+        </div>
+      </section>
+
+      <!-- 11. 补充板块：热门榜单 -->
+      <section class="section" id="rank">
+        <div class="section-head">
+          <div>
+            <h2>近 30 日下载榜</h2>
+            <div class="section-sub">统计区间 2026-10-27 至 2026-11-25</div>
+          </div>
+        </div>
+        <div class="rank-list">
+          <div class="rank-item">
+            <span class="rank-num">1</span>
+            <span class="rank-name">冷调城市夜景 LUT 包<small>调色预设 · 6 组</small></span>
+            <span class="rank-bar"><span style="width:96%"></span></span>
+            <span class="rank-val">9,842</span>
+          </div>
+          <div class="rank-item">
+            <span class="rank-num">2</span>
+            <span class="rank-name">三分钟叙事挑战赛投稿合集<small>剪辑模板 · 46 份</small></span>
+            <span class="rank-bar"><span style="width:88%"></span></span>
+            <span class="rank-val">8,113</span>
+          </div>
+          <div class="rank-item">
+            <span class="rank-num">3</span>
+            <span class="rank-name">口播视频字幕排版套件<small>字幕排版 · 13 套</small></span>
+            <span class="rank-bar"><span style="width:79%"></span></span>
+            <span class="rank-val">7,560</span>
+          </div>
+          <div class="rank-item">
+            <span class="rank-num">4</span>
+            <span class="rank-name">雨声环境音分层素材包<small>音效素材 · 4 层</small></span>
+            <span class="rank-bar"><span style="width:71%"></span></span>
+            <span class="rank-val">7,208</span>
+          </div>
+          <div class="rank-item">
+            <span class="rank-num">5</span>
+            <span class="rank-name">手持运镜稳定教学模板<small>拍摄脚本 · 5 动作</small></span>
+            <span class="rank-bar"><span style="width:65%"></span></span>
+            <span class="rank-val">6,975</span>
+          </div>
+          <div class="rank-item">
+            <span class="rank-num">6</span>
+            <span class="rank-name">日系胶片 Vlog 调色预设<small>调色预设 · 4 组</small></span>
+            <span class="rank-bar"><span style="width:58%"></span></span>
+            <span class="rank-val">6,430</span>
+          </div>
+          <div class="rank-item">
+            <span class="rank-num">7</span>
+            <span class="rank-name">无痕转场动效 B 组<small>转场动效 · 18 种</small></span>
+            <span class="rank-bar"><span style="width:52%"></span></span>
+            <span class="rank-val">6,102</span>
+          </div>
+          <div class="rank-item">
+            <span class="rank-num">8</span>
+            <span class="rank-name">「雨夜便利贴」短片分镜表<small>作品档案 · 23 镜</small></span>
+            <span class="rank-bar"><span style="width:45%"></span></span>
+            <span class="rank-val">5,880</span>
+          </div>
+          <div class="rank-item">
+            <span class="rank-num">9</span>
+            <span class="rank-name">产品展示节奏板模板<small>剪辑模板 · 3 时长</small></span>
+            <span class="rank-bar"><span style="width:38%"></span></span>
+            <span class="rank-val">5,415</span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 右侧辅助栏 -->
+    <aside class="side" aria-label="辅助栏">
+      <div class="side-block">
+        <div class="side-title">社区速览</div>
+        <ul class="update-flow">
+          <li><time>10:12</time><span><b>林间剪辑室</b> 上传了车库夜景对照图</span></li>
+          <li><time>09:48</time><span><b>陈默拍片</b> 在挑战赛合集下留言</span></li>
+          <li><time>09:05</time><span><b>周末不加班</b> 更新了字幕套件评价</span></li>
+          <li><time>08:31</time><span><b>赵一鸣</b> 分享了雨声分层试听</span></li>
+        </ul>
+        <p class="side-note">社区讨论摘录自模板页与作品档案页，保留原始语气与中性评价。</p>
+      </div>
+      <div class="side-block">
+        <div class="side-title">专题入口</div>
+        <nav class="side-nav" aria-label="专题列表">
+          <a href="/#deep">场景化调色怎么选 <span>解析</span></a>
+          <a href="/#guide">五步消费路径 <span>指南</span></a>
+          <a href="/#rank">近 30 日下载榜 <span>榜单</span></a>
+          <a href="/#news">11 月资源变动 <span>资讯</span></a>
+          <a href="/#comments">社区讨论摘录 <span>评论</span></a>
+        </nav>
+      </div>
+      <div class="side-block">
+        <div class="side-title">下载前核对</div>
+        <ul class="update-flow">
+          <li><time>1</time><span>软件版本与工程尺寸</span></li>
+          <li><time>2</time><span>素材授权范围说明</span></li>
+          <li><time>3</time><span>占位层是否完整可替换</span></li>
+        </ul>
+        <p class="side-note">三项信息在每份资源的固定位置标注，核对后再下载可减少返工。</p>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="/#top" aria-label="www17cc官网 首页">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <rect x="2.5" y="5" width="12" height="14" rx="3" stroke="#fff" stroke-width="1.9"/>
+              <path d="M15.5 10.2 21 7.3v9.4l-5.5-2.9z" fill="#fff"/>
+              <circle cx="8" cy="12" r="2.2" fill="#fff" opacity=".85"/>
+            </svg>
+          </span>
+          <span class="brand-name">www17cc官网</span>
+        </a>
+        <p>视频创作工具与素材频道，长期维护剪辑模板、调色预设、音效素材与社区作品档案，服务于短片团队、自媒体与剪辑爱好者的成片流程。</p>
+      </div>
+      <div class="footer-col">
+        <h4>资源类型</h4>
+        <a href="/#cats">剪辑模板</a>
+        <a href="/#cats">调色预设</a>
+        <a href="/#cats">音效素材</a>
+        <a href="/#cats">转场动效</a>
+        <a href="/#cats">字幕排版</a>
+      </div>
+      <div class="footer-col">
+        <h4>内容板块</h4>
+        <a href="/#overview">领域概览</a>
+        <a href="/#picks">本期精选</a>
+        <a href="/#latest">最新更新</a>
+        <a href="/#deep">深度解析</a>
+        <a href="/#guide">使用路径</a>
+      </div>
+      <div class="footer-col">
+        <h4>社区</h4>
+        <a href="/#comments">用户评论</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#news">相关资讯</a>
+        <a href="/#rank">下载榜单</a>
+        <a href="/#related">延伸索引</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>
+        资源信息以页面标注的版本、适用软件与授权范围为准；榜单与热度数据统计区间为 2026-10-27 至 2026-11-25。
+      </div>
+      <div class="links">
+        <a href="/#top">回到顶部</a>
+        <a href="/#faq">使用说明</a>
+        <a href="/#latest">更新记录</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var input = document.getElementById('siteSearch');
+  var feedback = document.getElementById('searchFeedback');
+  var noResult = document.getElementById('noResult');
+  var containers = document.querySelectorAll('[data-searchable]');
+
+  function nodesOf(){
+    var arr = [];
+    containers.forEach(function(c){
+      c.querySelectorAll('.card, .news-item').forEach(function(el){ arr.push(el); });
+    });
+    return arr;
+  }
+  var allNodes = nodesOf();
+
+  function textOf(el){ return (el.textContent || '').toLowerCase(); }
+
+  function run(){
+    var q = (input.value || '').trim().toLowerCase();
+    var shown = 0;
+    allNodes.forEach(function(el){
+      var hit = !q || textOf(el).indexOf(q) > -1;
+      el.style.display = hit ? '' : 'none';
+      if(hit) shown++;
+    });
+    if(!q){
+      feedback.classList.remove('show');
+      feedback.textContent = '';
+      noResult.classList.remove('show');
+      return;
+    }
+    feedback.textContent = '当前搜索「' + input.value.trim() + '」匹配到 ' + shown + ' 条内容';
+    feedback.classList.add('show');
+    noResult.classList.toggle('show', shown === 0);
+  }
+
+  if(input){
+    input.addEventListener('input', run);
+    input.addEventListener('search', run);
+  }
+
+  var joinBtn = document.getElementById('joinBtn');
+  if(joinBtn){
+    joinBtn.addEventListener('click', function(){
+      var target = document.getElementById('comments');
+      if(target){
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+        var first = target.querySelector('.comment');
+        if(first){ first.setAttribute('tabindex','-1'); first.focus({preventScroll:true}); }
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+              </html>
